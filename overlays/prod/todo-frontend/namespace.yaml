@@ -1,4 +1,4 @@
-# overlays/prod/mysql/namespace.yaml
+# overlays/prod/todo-frontend/namespace.yaml
 apiVersion: v1
 kind: Namespace
 metadata:
