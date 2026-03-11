@@ -4,7 +4,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: staging
 resources:
-  - ../../base/frontend
+  - ../../../base/frontend
+  - namespace.yaml                 # ← namespace lives here
+
 
 images:
   - name: noakhali/todo-frontend

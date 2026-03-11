@@ -6,6 +6,8 @@ namespace: staging
 
 resources:
   - ../../../base/mysql
+  - namespace.yaml
+
 
 patches:
   # Override storage size for dev (smaller)
