@@ -8,6 +8,6 @@ resources:
 
 images:
   - name: noakhali/todo-backend
-    newTag: baca063
+    newTag: 778262a
     
 
