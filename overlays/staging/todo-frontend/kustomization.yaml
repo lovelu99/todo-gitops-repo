@@ -1,0 +1,13 @@
+---
+# overlays/staging/frontend/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: staging
+resources:
+  - ../../base/frontend
+
+images:
+  - name: noakhali/todo-frontend
+    newTag: df109ce
+    
+

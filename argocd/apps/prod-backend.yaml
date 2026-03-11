@@ -1,0 +1,20 @@
+# argocd/apps/prod-backend.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-backend
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/lovelu99/todo-gitops-repo.git
+    targetRevision: main
+    path: overlays/prod/backend
+    kustomize: {}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod
+  syncPolicy:
+    automated:
+      prune: false               # ← manual for prod
+      selfHeal: false

@@ -1,0 +1,19 @@
+# argocd/apps/dev-ingress.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev-ingress
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/lovelu99/todo-gitops-repo.git
+    targetRevision: main
+    path: overlays/dev             # ← watches env level folder
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

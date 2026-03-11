@@ -1,0 +1,20 @@
+# argocd/apps/staging-frontend.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: staging-frontend
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/lovelu99/todo-gitops-repo.git
+    targetRevision: main
+    path: overlays/staging/frontend
+    kustomize: {}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: staging
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

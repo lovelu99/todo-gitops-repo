@@ -1,0 +1,8 @@
+# overlays/staging/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: staging
+resources:
+  - ingress.yaml                 # ← ingress lives here
+  - todo-frontend/kustomization.yaml  # ← frontend resources
+  - todo-backend/kustomization.yaml   # ← backend resources
