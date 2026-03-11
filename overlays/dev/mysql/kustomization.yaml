@@ -6,6 +6,7 @@ namespace: dev
 
 resources:
   - ../../../base/mysql
+  - namespace.yaml                 # ← namespace lives here
 
 patches:
   # Override storage size for dev (smaller)
