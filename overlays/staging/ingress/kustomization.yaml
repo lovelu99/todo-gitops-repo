@@ -4,5 +4,4 @@ kind: Kustomization
 namespace: staging
 resources:
   - ingress.yaml                 # ← ingress lives here
-  - todo-frontend/kustomization.yaml  # ← frontend resources
-  - todo-backend/kustomization.yaml   # ← backend resources
+  - namespace.yaml                 # ← namespace lives here

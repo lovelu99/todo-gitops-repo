@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/lovelu99/todo-gitops-repo.git
     targetRevision: main
-    path: overlays/staging             # ← watches env level folder
+    path: overlays/staging/ingress             # ← watches env level folder
   destination:
     server: https://kubernetes.default.svc
     namespace: staging

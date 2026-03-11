@@ -5,5 +5,3 @@ namespace: dev
 resources:
   - namespace.yaml                 # ← namespace lives here
   - ingress.yaml                 # ← ingress lives here
-  - todo-frontend/kustomization.yaml  # ← frontend resources
-  - todo-backend/kustomization.yaml   # ← backend resources
