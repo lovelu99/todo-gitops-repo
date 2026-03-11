@@ -1,4 +1,4 @@
-# overlays/dev/mysql/kustomization.yaml
+# overlays/prod/mysql/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
@@ -6,6 +6,7 @@ namespace: prod
 
 resources:
   - ../../../base/mysql
+  - namespace.yaml
 
 patches:
   # Override storage size for dev (smaller)
