@@ -1,24 +1,28 @@
+# overlays/prod/ingress.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: todos-ingress
+  name: prod-ingress
+  namespace: prod
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
+    alb.ingress.kubernetes.io/group.name: prod          # ← groups rules in one ALB
 spec:
   ingressClassName: alb
   rules:
-    - http:
+    - host: prod.web.lovelu.com                              # ← prod hostname
+      http:
         paths:
-          - path: /api
+          - path: /api                                 # ← specific first ✅
             pathType: Prefix
             backend:
               service:
                 name: todo-backend-service
                 port:
                   number: 80
-          - path: /
+          - path: /                                    # ← catch-all last ✅
             pathType: Prefix
             backend:
               service:
