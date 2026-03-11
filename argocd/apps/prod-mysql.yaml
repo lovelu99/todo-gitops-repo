@@ -1,21 +1,20 @@
-# argocd/apps/dev-ingress.yaml
+# argocd/apps/prod-mysql.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dev-ingress
+  name: prod-mysql
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/lovelu99/todo-gitops-repo.git
     targetRevision: main
-    path: overlays/staging             # ← watches env level folder
+    path: overlays/prod/mysql
+    kustomize: {}
   destination:
     server: https://kubernetes.default.svc
-    namespace: staging
+    namespace: prod
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+      prune: false                          # ← NEVER auto prune prod database!
+      selfHeal: false                       # ← manual sync for prod

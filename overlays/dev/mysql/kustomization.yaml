@@ -1,0 +1,18 @@
+# overlays/dev/mysql/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: dev
+
+resources:
+  - ../../../base/mysql
+
+patches:
+  # Override storage size for dev (smaller)
+  - target:
+      kind: StatefulSet
+      name: mysql
+    patch: |-
+      - op: replace
+        path: /spec/volumeClaimTemplates/0/spec/resources/requests/storage
+        value: 1Gi                          # ← smaller for dev

@@ -1,21 +1,20 @@
-# argocd/apps/dev-ingress.yaml
+# argocd/apps/dev-mysql.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dev-ingress
+  name: dev-mysql
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/lovelu99/todo-gitops-repo.git
     targetRevision: main
-    path: overlays/staging             # ← watches env level folder
+    path: overlays/dev/mysql
+    kustomize: {}
   destination:
     server: https://kubernetes.default.svc
-    namespace: staging
+    namespace: dev
   syncPolicy:
     automated:
-      prune: true
+      prune: false                          # ← never auto delete MySQL! data loss risk
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true

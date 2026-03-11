@@ -18,3 +18,5 @@ spec:
     automated:
       prune: false               # ← manual for prod
       selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
