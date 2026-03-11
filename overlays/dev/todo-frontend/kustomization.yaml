@@ -2,6 +2,7 @@
 # overlays/dev/frontend/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: dev
 resources:
   - ../../../base/frontend
   - namespace.yaml                 # ← namespace lives here
