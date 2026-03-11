@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/lovelu99/todo-gitops-repo.git
     targetRevision: main
-    path: overlays/prod/backend
+    path: overlays/prod/todo-backend
     kustomize: {}
   destination:
     server: https://kubernetes.default.svc
