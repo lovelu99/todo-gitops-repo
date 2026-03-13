@@ -9,6 +9,6 @@ resources:
 
 images:
   - name: noakhali/todo-backend
-    newTag: 778262a
+    newTag: 10fb937
     
 
